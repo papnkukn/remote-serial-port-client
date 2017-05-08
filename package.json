@@ -1,0 +1,17 @@
+{
+  "name": "remote-serial-port-server",
+  "description": "Serial port over Ethernet",
+  "version": "0.2.0",
+  "main": "lib/RemoteSerialPort.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minjs": "npm install minify && node -e \"require('minify')('./lib/RemoteSerialPort.js', function(error, data) { require('fs').writeFileSync('./dist/RemoteSerialPort.min.js', data); })\"",
+    "minify": "npm install minify && node minify.js"
+  },
+  "author": "Papn Kukn",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.81.0",
+    "ws": "^2.3.1"
+  }
+}
