@@ -1,5 +1,5 @@
 {
-  "name": "remote-serial-port-server",
+  "name": "remote-serial-port-client",
   "description": "Serial port over Ethernet",
   "version": "0.2.0",
   "main": "lib/RemoteSerialPort.js",

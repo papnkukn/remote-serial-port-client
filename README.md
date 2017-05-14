@@ -6,18 +6,18 @@ Serial port over ethernet using a HTTP server with WebSockets and REST API.
 
 ## Getting Started
 
-Install the package:
+Install the package
 ```bash
 npm install remote-serial-port-client
 ```
 
-Make sure the server is running:
+Make sure the server is running
 ```bash
 npm install -g remote-serial-port-server
 remote-serial-port-server --port 5147
 ```
 
-List serial ports:
+List serial ports
 ```javascript
 var serialport = new RemoteSerialPort({ url: "http://localhost:5147/" });
 serialport.list(function(error, ports) {
@@ -36,12 +36,12 @@ var serialport = new RemoteSerialPort({ url: "http://localhost:5147/" });
 
 ## Use in browser
 
-Reference the library:
+Reference the library
 ```html
 <script src="dist/RemoteSerialPort.min.js"></script>
 ```
 
-Initialize in JavaScript:
+Initialize in JavaScript
 ```javascript
 var serialport = new RemoteSerialPort({ url: "http://localhost:5147/" });
 ...
@@ -59,7 +59,7 @@ new RemoteSerialPort(options)
 
 Lists available serial ports from the remote host.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 callback          | function  | function(error, ports)
@@ -68,7 +68,7 @@ callback          | function  | function(error, ports)
 
 Gets the specified serial port status.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 callback          | function  | function(error, status)
@@ -77,7 +77,7 @@ callback          | function  | function(error, status)
 
 Opens the specified serial port.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 options           | object    | Serial port config
@@ -91,7 +91,7 @@ callback          | function  | function(error, result)
 
 Closes the specified serial port.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 callback          | function  | function(error, result)
@@ -100,7 +100,7 @@ callback          | function  | function(error, result)
 
 Writes data to the serial port.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 data              | mixed     | Data to be sent to serial port, String of Buffer
@@ -110,7 +110,7 @@ callback          | function  | function(error, result)
 
 Reads data from the serial port receive buffer.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 callback          | function  | function(error, data)
@@ -119,11 +119,11 @@ callback          | function  | function(error, data)
 
 Gets a number of bytes waiting in the serial port receive buffer.
 
-Arguments         | Type      | Description
+Argument name     | Type      | Description
 ----------------- | --------- | ---------------------------------------------------------------------------------
 port              | string    | Serial port name, e.g. COM1 or ttyUSB0 (without /dev)
 callback          | function  | function(error, result)
 
 ## Server-side
 
-See [remote-serial-port-server](/papnkukn/remote-serial-port-server) script.
+See [remote-serial-port-server](https://github.com/papnkukn/remote-serial-port-server) script.
