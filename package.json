@@ -1,17 +1,25 @@
 {
   "name": "remote-serial-port-client",
-  "description": "Serial port over Ethernet",
-  "version": "0.2.0",
-  "main": "lib/RemoteSerialPort.js",
+  "description": "Serial port over Ethernet using REST API, WebSocket, TCP or UDP socket",
+  "version": "0.4.0",
+  "author": "Papn Kukn",
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "minjs": "npm install minify && node -e \"require('minify')('./lib/RemoteSerialPort.js', function(error, data) { require('fs').writeFileSync('./dist/RemoteSerialPort.min.js', data); })\"",
     "minify": "npm install minify && node minify.js"
   },
-  "author": "Papn Kukn",
-  "license": "MIT",
   "dependencies": {
     "request": "^2.81.0",
+    "semaphore": "^1.0.5",
     "ws": "^2.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/papnkukn/remote-serial-port-client"
+  },
+  "bugs": {
+    "url": "https://github.com/papnkukn/remote-serial-port-client/issues"
   }
 }
