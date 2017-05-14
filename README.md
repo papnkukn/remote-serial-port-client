@@ -19,6 +19,7 @@ remote-serial-port-server --port 5147
 
 List serial ports
 ```javascript
+var RemoteSerialPort = require('remote-serial-port-client').RemoteSerialPort;
 var serialport = new RemoteSerialPort({ url: "http://localhost:5147/" });
 serialport.list(function(error, ports) {
   console.log(ports);
@@ -29,10 +30,27 @@ serialport.list(function(error, ports) {
 
 Initialize
 ```javascript
-var RemoteSerialPort = require("remote-serial-port-client");
+var RemoteSerialPort = require('remote-serial-port-client').RemoteSerialPort;
 var serialport = new RemoteSerialPort({ url: "http://localhost:5147/" });
 ...
 ```
+
+Using a TCP socket
+```javascript
+var RemoteSerialPort = require('remote-serial-port-client').RemoteSerialPort;
+var tcp = new RemoteSerialPort({ mode: "tcp", host: "127.0.0.1", port: 5147 });
+tcp.open(function(error, result) {
+  console.log("Connected");
+  setTimeout(function() {
+    tcp.write("AT;\n");
+  }, 3000);
+});
+tcp.on("read", function(result) {
+  console.log("read", result.data.toString('ascii'));
+});
+```
+
+Similar for UDP, just change the `mode` to `udp`.
 
 ## Use in browser
 
@@ -49,11 +67,19 @@ var serialport = new RemoteSerialPort({ url: "http://localhost:5147/" });
 
 ## Methods
 
-### Constructor
+### new RemoteSerialPort(options)
 
-```
-new RemoteSerialPort(options)
-```
+Creates a new instance.
+
+Propreties of `options` argument:
+
+Argument name     | Type      | Description
+----------------- | --------- | ---------------------------------------------------------------------------------
+verbose           | boolean   | A value indicating whether to print details to console
+mode              | string    | Mode: http, tcp, udp; default: http
+url               | string    | URL to the the HTTP of the serial port server, mode 'http' only
+host              | string    | Host name or IP address of the serial port server, TCP and UDP only
+port              | number    | Port number of the serial port server, TCP and UDP only
 
 ### list(callback)
 
